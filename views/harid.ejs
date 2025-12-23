@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPRESS</title>
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous"
+    />
+
+</head>
+<body style="background-color: cornsilk;">
+    <div class="container">
+            <h1 class="display-4 text-center py-1">Reja va Maqsadlar</h1>
+
+            <div class="jumbotron p-3 shadow-sm">
+                <form id="create-form" action="/create-item" method="POST">
+                    <div class="d-flex align-items-center">
+                        <input
+                            id="create-field"
+                            name="item"
+                            autofocus
+                            autocomplete="off"
+                            type="text"
+                            class="form-control mr-3"
+                            style="flex: 1;"
+                            placeholder="Введите текст"
+                        >
+                        <button class="btn btn-primary" style="border-radius: 20px;">
+                            Yangi harid qilish
+                        </button>
+                    </div>
+                    
+                </form>
+            </div>
+
+    </div>
+</body>
+</html>
