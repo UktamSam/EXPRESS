@@ -2,10 +2,10 @@
   "name": "Sam",
   "profession": "Software Engineer",
   "age": 25,
-  "residence": "Tajikistan",
+  "residence": "TJK",
   "adress": "S.Korea, Busan",
   "languages": ["Uzbek", "Russian", "Korean", "Tajik", "English"],
-  "skills": ["Html", "Css", "JS", "NodeJS", "Python"],
+  "skills": ["HTML", "CSS", "JS", "NodeJS", "Python"],
   "extra_skills": [
     "Bootstrap",
     "Materialize",

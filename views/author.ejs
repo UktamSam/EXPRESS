@@ -4,16 +4,288 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <link rel="stylesheet" href="/public/main.css">
+    <link rel="stylesheet" href="/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   </head>
   <body>
     <div class="frame">
         <div class="main_frame">
-            <div class="left_frame"></div>
-            <div class="midd_frame"></div>
-            <div class="right_frame"></div>
+            <div class="left_frame">
+                <div class="left_1">
+                    <div class="left_1_1">
+                        <img src="images/Profile3.jpg" alt="photo" style="border-radius: 156.164px;width: 146.164px;
+height: 152.527px;">
+                    </div>
+                    <div class="left_1_2"><%= user.name %></div>
+                    <div class="left_1_3"><%= user.profession %></div>
+                    <div class="left_icons">
+                                    <div class="social_icon" title="Contrast">
+                                        <img src="icon/Facebook.svg" alt="Home">
+                                    </div>
+                                    <div class="social_icon" title="Home">
+                                        <img src="icon/Instagram.svg" alt="Home">
+                                    </div>
+                                    <div class="social_icon">
+                                        <img src="icon/Dribbble.svg" alt="Code">
+                                    </div>
+                                    <div class="social_icon">
+                                        <img src="icon/Linkeding.svg" alt="Education">
+                                    </div>
+                                    <div class="social_icon">
+                                        <img src="icon/Twitter.svg" alt="Work">
+                                    </div>
+                                    <div class="social_icon">
+                                        <img src="icon/Youtube.svg" alt="Blog">
+                                    </div>
+                    </div>
+                </div>
+                <div class="marginer"></div>
+                <div class="left_2">
+                    <div class="left_2_1">
+                        <div class="left_label">Age:</div>
+                        <div class="left_value"><%=user.age%></div>
+                    </div>
+                    <div class="left_2_1">
+                        <div class="left_label">Residence:</div>
+                        <div class="left_value"><%=user.residence%></div>
+                    </div>
+                    <div class="left_2_1">
+                        <div class="left_label">Freelance:</div>
+                        <div class="left_value" style="color: #7EB942;">Available</div>
+                    </div>
+                    <div class="left_2_1">
+                        <div class="left_label">Adress:</div>
+                        <div class="left_value"><%=user.adress%></div>
+                    </div>
+                </div>
+                <div class="marginer"></div>
+                <div class="left_3">
+                    <div class="LanSkillExtra">Languages</div>
+                    <div class="label3_2">
+                        <div class="label3__6"><%= user.languages[0] %></div>
+                        <div class="label3__6">100%</div>
+                    </div>
+                    <div class="scale">
+                        <div class="scale_in"></div>
+                    </div>
+                    <div class="label3_2">
+                        <div class="label3__6"><%= user.languages[1] %></div>
+                        <div class="label3__6">100%</div>
+                    </div>
+                    <div class="scale">
+                        <div class="scale_in"></div>
+                    </div>
+                    <div class="label3_2">
+                        <div class="label3__6"><%= user.languages[2] %></div>
+                        <div class="label3__6">80%</div>
+                    </div>
+                    <div class="scale">
+                        <div class="scale_in" style="width: 80%;"></div>
+                    </div>
+                     <div class="label3_2">
+                        <div class="label3__6"><%= user.languages[4] %></div>
+                        <div class="label3__6">70%</div>
+                    </div>
+                    <div class="scale">
+                        <div class="scale_in" style="width: 70%;"></div>
+                    </div>
+                     <div class="label3_2">
+                        <div class="label3__6"><%= user.languages[3] %></div>
+                        <div class="label3__6">70%</div>
+                    </div>
+                    <div class="scale">
+                        <div class="scale_in" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="marginer"></div>
+                <div class="left_4">
+                    <div class="LanSkillExtra">Skills</div>
+                    <div class="label3_2">
+                        <div class="label3__6"><%= user.skills[0] %></div>
+                        <div class="label3__6">100%</div>
+                    </div>
+                    <div class="scale">
+                        <div class="scale_in" style="width: 90%;"></div>
+                    </div>
+                    <div class="label3_2">
+                        <div class="label3__6"><%= user.skills[1] %></div>
+                        <div class="label3__6">100%</div>
+                    </div>
+                    <div class="scale">
+                        <div class="scale_in" style="width: 90%;"></div>
+                    </div>
+                    <div class="label3_2">
+                        <div class="label3__6"><%= user.skills[2] %></div>
+                        <div class="label3__6">80%</div>
+                    </div>
+                    <div class="scale">
+                        <div class="scale_in" style="width: 80%;"></div>
+                    </div>
+                     <div class="label3_2">
+                        <div class="label3__6"><%= user.skills[3] %></div>
+                        <div class="label3__6">70%</div>
+                    </div>
+                    <div class="scale">
+                        <div class="scale_in" style="width: 75%;"></div>
+                    </div>
+                     <div class="label3_2">
+                        <div class="label3__6"><%= user.skills[4] %></div>
+                        <div class="label3__6">70%</div>
+                    </div>
+                    <div class="scale">
+                        <div class="scale_in" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="marginer"></div>
+                <div class="left_5">
+                    <div class="LanSkillExtra">Extra Skills</div>
+                    <div class="label5_2">
+                        <div>
+                            <img src="icon/Extraskillsicon.svg" alt="extraicon">
+                        </div>
+                        <div class="label5_3"><%=user.extra_skills[0]%>, <%= user.extra_skills[1] %></div>
+                    </div>
+                    <div class="label5_2">
+                        <div>
+                            <img src="icon/Extraskillsicon.svg" alt="extraicon">
+                        </div>
+                        <div class="label5_3"><%=user.extra_skills[2]%>, <%= user.extra_skills[3] %></div>
+                    </div>
+                    <div class="label5_2">
+                        <div><img src="icon/Extraskillsicon.svg" alt="extraicon"></div>
+                        <div class="label5_3"><%=user.extra_skills[4]%>, <%= user.extra_skills[5] %></div>
+                    </div>
+                    <div class="label5_2">
+                        <div><img src="icon/Extraskillsicon.svg" alt="extraicon"></div>
+                        <div class="label5_3"><%=user.extra_skills[6]%></div>
+                    </div>
+                </div>
+                <div class="marginer"></div>
+                <button class="left_6">
+                    DOWNLOAD CV
+                    <img src="icon/btn_down.svg" alt="btn_down" style="margin-left: 10px;">
+                </button>
+            </div>
+        <!-------------------------------  Middle Frame  -------------------------->
+            <div class="midd_frame">
+                <div class="midd_1">
+                    <span class="midd_1_icon1"> 
+                        <img src="icon/ellips_orange.svg" alt="ellips_orange">
+                    </span>
+                    <span class="midd_1_icon2">
+                        <img src="icon/ellips_orange.svg" alt="ellips_orange">
+                    </span>
+                    <span class="midd_1_icon3">
+                        <img src="icon/ellips_green.svg" alt="ellips_green">
+                    </span>
+                    <span class="midd_1_icon4">
+                        <img src="icon/ellips_green.svg" alt="ellips_green">
+                    </span>
+                    <span class="midd_1_icon5">
+                        <img src="icon/kv_blue.svg" alt="kv_blue">
+                    </span>
+                    <span class="midd_1_icon6">
+                        <img src="icon/kvad_orange.svg" alt="kvad_orange">
+                    </span>
+                    <span class="midd_1_icon7">
+                        <img src="icon/tr_red.svg" alt="tr_red">
+                    </span>
+                    <div class="midd_1_left">
+                        <div class="midd_1_title">Software Engineer at Samsung Electronics</div>
+                        <div class="midd_1_text">Designed and developed scalable software solutions. 
+                            Worked on system architecture and code optimization. Collaborated with 
+                            cross-functional teams to deliver reliable products.</div>
+                        <button class="midd_1_btn">
+                            HIRE ME
+                            <img src="icon/strelka.svg" alt="btn_strelka">
+                        </button>
+                    </div>
+                    <div class="midd_1_right">
+                        <img src="images/office1.jpg" alt="midd_image" style="width: 399px;height: 459px;
+Style
+
+">
+                    </div>
+                </div>
+                <div class="my_services">
+                    <div class="midd_2">My Services</div>
+                    <div class="midd_3">Built and maintained software systems to meet business requirements. 
+                        Focused on clean code, performance, and reliability. Worked closely with team 
+                        members to deliver stable solutions.</div>
+                    <div class="midd_4">
+                        <div class="midd_4_1">
+                            <div class="midd_4_icon">
+                                <img src="menu_icon/coding.svg" alt="">
+                            </div>
+                            <div class="midd_4_title">Web Development</div>
+                            <div class="midd_4_text">Blog, E-commerce</div>
+                        </div>
+                        <div class="midd_4_1">
+                            <div>
+                                <img src="menu_icon/illustration.svg" alt="">
+                            </div>
+                            <div class="midd_4_title">UI/UX Design</div>
+                            <div class="midd_4_text">Mobile App, Website Design</div>
+                        </div>
+                        <div class="midd_4_1" style="margin-right: 0px;">
+                            <div>
+                                <img src="menu_icon/Microphone.svg" alt="">
+                            </div>
+                            <div class="midd_4_title">Sound Design</div>
+                            <div class="midd_4_text">Voice Over, Beat Making</div>
+                        </div>
+                    </div>
+                    <div class="midd_5">
+                        <div class="midd_4_1">
+                            <div>
+                                <img src="menu_icon/game-development.svg" alt="">
+                            </div>
+                            <div class="midd_4_title">Game Design</div>
+                            <div class="midd_4_text">Character Design, Props & Objects</div>
+                        </div>
+                        <div class="midd_4_1">
+                            <div>
+                                <img src="menu_icon/Photographer.svg" alt="">
+                            </div>
+                            <div class="midd_4_title">Photography</div>
+                            <div class="midd_4_text">Portrait, Product Photography</div>
+                        </div>
+                        <div class="midd_5_1" style="margin-right: 0px;">
+                            <div class="midd_4_title">Advertising</div>
+                            <div class="midd_4_text" style="width: 260px; height: 78px; margin-top: 22px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Vitae nulla diam in ac dictum a urna viverra morbi. </div>
+                            <div class="midd_5_order">
+                                <span>ORDER NOW </span> 
+                                <img src="menu_icon/adver_strelka.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_frame">
+                <div class="icon_1" title="Contrast">
+                    <img src="btn_icon/Contrast.svg" alt="Home">
+                </div>
+                <div class="icon_home" title="Home">
+                    <img src="btn_icon/Home.svg" alt="Home">
+                </div>
+                <div class="icon">
+                    <img src="btn_icon/Service.svg" alt="Code">
+                </div>
+                <div class="icon">
+                    <img src="btn_icon/Cv.svg" alt="Education">
+                </div>
+                <div class="icon">
+                    <img src="btn_icon/Portfolio.svg" alt="Work">
+                </div>
+                <div class="icon">
+                    <img src="btn_icon/Blog.svg" alt="Blog">
+                </div>
+                <div class="icon">
+                    <img src="btn_icon/Contact.svg" alt="Contact">
+                </div>
+            </div>
         </div>
     </div>
   </body>
