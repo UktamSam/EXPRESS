@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "task": "nodemon task.js"
+    "train": "nodemon train.js",
+    "call": "nodemon CallbackAsync21-22.js"
   },
   "author": "UktamSam",
   "license": "ISC",

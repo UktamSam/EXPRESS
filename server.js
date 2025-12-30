@@ -17,9 +17,16 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
 
 //<============================================ 1 Kirish code =========================================>
 //Kirish code - Expressga kirib kelyotgan malumotga bog'liq code
-app.use(express.static("public")); //browser clientlarga public folderni ochib beryabdi(ichiga css, imagelar joylanadi)
-app.use(express.json()); //Kirib kelyotgan .json formatdagi datani () objectga ugurib beradi (Client↔Server .json formatdagi file orqali)
-app.use(express.urlencoded({extended: true})); //HTMLdan form "req"larni qabul qilib oladi. Yozmasak serverga kiritmaydi
+app.use(express.static("public")); 
+//browser clientlarga public folderni ochib beryabdi(ichiga css, imagelar joylanadi)
+
+app.use(express.json()); 
+//Kirib kelyotgan .json formatdagi datani () objectga ugurib beradi (Client↔Server .json formatdagi file orqali) 
+//'REST API' qo'llab quvvatlaydi
+
+app.use(express.urlencoded({extended: true})); 
+/*HTMLdan form "req"larni qabul qilib oladi. Yozmasak serverga kiritmaydi. 
+(Traditional API - "FORM" datadan jo'natilgan request)*/
 
 //<============================================ 2 Session code =========================================>
 
@@ -27,11 +34,14 @@ app.use(express.urlencoded({extended: true})); //HTMLdan form "req"larni qabul q
 //<============================================ 3 Views code ===========================================>
 
 //Views code - BSSR (backendda frontend(view) yasash)
-app.set("views", "views"); //2chi "views" shunchaki folder nomi.
+app.set("views", "views"); //2chi "views" shunchaki folder nomi. 'views' ichidagi filelarni ishlatsang bo'ladi
 app.set("view engine", "ejs"); //"ejs" orqali frontend yasaladi
 //set - seting qiladi.
+//"view engine" - "ejs"ni htmlga ugurtib beradi
 
 //<============================================ 4 Routing code =========================================>
+//Routing - xonalar uchun yo'nalish ko'rsatadi. 
+
 
 // app.get("/hello", function(req, res) {
 //         res.end('<h1 style="text-align: center;">Assalomu aleykum Bro!</h1>');

@@ -87,6 +87,11 @@
     margin-right: 13px;
     width: 24.986px;
     height: 22.804px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.social_icon:hover {
+    transform: scale(1.4);
 }
 
 .left_frame .marginer {
@@ -261,7 +266,17 @@
     font-weight: 600;
     line-height: normal;
     text-transform: uppercase;
+    cursor: pointer;
+    /* smooth animation */
+    transition: background-color 0.3s ease, 
+    transform 0.3s ease, font-weight 0.3s ease;
 }
+.left_frame .left_6:hover {
+    background: #ffdd00;      /* change color */
+    transform: scale(1.1);   /* zoom in */
+    font-weight: 700; /* bold text */
+}
+
 
 .main_frame .midd_frame {
     position: relative;
@@ -363,6 +378,15 @@
     border-radius: 5px;
     border: none;
     background: var(--Yellow, #FFB400);
+    cursor: pointer;
+    /* smooth animation */
+    transition: background-color 0.3s ease, 
+    transform 0.3s ease, font-weight 0.3s ease;
+}
+.midd_1 .midd_1_btn:hover {
+    background: #ffdd00;      /* change color */
+    transform: scale(1.1);   /* zoom in */
+    font-weight: 700; /* bold text */
 }
 
 .midd_1 .midd_1_right {
@@ -429,6 +453,15 @@
     align-items: center;
     justify-content: center;
     background-color: #FFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease, 
+    transform 0.3s ease, font-weight 0.3s ease;
+    border: 0.3s ease;
+}
+.midd_frame .midd_4_1:hover {
+    background: #54fcff;
+    transform: scale(1.07);
+    border: 2px solid #2445fd;
 }
 
 /* .midd_frame .midd_4_icon {
@@ -480,7 +513,17 @@
     align-items: center;
     justify-content: space-around;
     background-color: #FFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease, 
+    transform 0.3s ease, font-weight 0.3s ease;
+    border: 0.3s ease;
 }
+.midd_frame .midd_5_1:hover {
+    background: #54fcff;
+    transform: scale(1.07);
+    border: 2px solid #2445fd;
+}
+
 
 .midd_frame .midd_5 .midd_5_order {
     color: var(--Yellow, #FFB400);
