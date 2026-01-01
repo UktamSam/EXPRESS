@@ -54,16 +54,33 @@ app.set("view engine", "ejs"); //"ejs" orqali frontend yasaladi
 //         res.end('<h1 style="text-align: center;">You can take gift for your childrens!</h1>');
 // });
 app.post("/create-item", (req, res)=> {     //post - o'zi bilan malum bir malumotni ob keladi va datebasega yozadi
-    console.log(req.body);                  //req - 3qismdan iborat; 1-URL, 2-request header, 3-request body.
-    res.json({test: "Yuborildi! Ura"})      //req.body emas req qilsak butunlay request keladi, judayam katta.
-})
+    console.log('user entered /');    
+    const new_reja = req.body.reja;
+    db.collection("plans").insertOne({reja: new_reja}, (err, data) =>{
+        if (err) {
+            console.log(err);
+            res.end("Something went wrong!")
+        }
+        else {
+            res.end("Successfully added");
+        }
+    });      //req.body emas req qilsak butunlay request keladi, judayam katta.
+});
 
 app.get('/author', (req, res) => {
     res.render("author", {user: user});
 })
 
 app.get('/', function (req, res) {          //get - 'database'dan malumotni olib o'qish uchun
-    res.render("reja");
+    console.log('user entered /');
+    db.collection("plans").find().toArray((err, data) => {
+        if (err) {
+            console.log(err);
+            res.end("something went wrong");
+        } else {
+            res.render("reja", {items: data});
+        }
+    });
 })
 
 module.exports = app;
