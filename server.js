@@ -59,12 +59,12 @@ app.get('/author', (req, res) => {
 })
 
 app.get('/', function (req, res) {          //get - 'database'dan malumotni olib o'qish uchun
-    res.render("harid");
+    res.render("reja");
 })
 const server = http.createServer(app); //http orqali server ochamiz
 let PORT = 3000;
 server.listen(PORT, function() {
-    console.log(`The server is running successfully on port: ${PORT}`);
+    console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
 }); //serverni malum bir portga listen qildiramiz
 
 
