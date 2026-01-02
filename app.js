@@ -14,11 +14,12 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
 });
 //app - backendni quradi
 //http - qurilgan backendni yurgizib beradi
-
+//backend maqsadi - API tashkillashtirish
 //<============================================ MongoDB connect =========================================>
 
-const db = require("./server").db();    
-
+const db = require("./server").db();
+const client = require("./server"); //TCP
+const mongodb = require("mongodb");
 //<============================================ 1 Kirish code =========================================>
 //Kirish code - Expressga kirib kelyotgan malumotga bog'liq code
 app.use(express.static("public")); 
@@ -57,13 +58,8 @@ app.post("/create-item", (req, res)=> {     //post - o'zi bilan malum bir malumo
     console.log('user entered /');    
     const new_reja = req.body.reja;
     db.collection("plans").insertOne({reja: new_reja}, (err, data) =>{
-        if (err) {
-            console.log(err);
-            res.end("Something went wrong!")
-        }
-        else {
-            res.end("Successfully added");
-        }
+     console.log(data.ops);
+     res.json(data.ops[0]); //mongoDB yangi reja bilan IDsini terminalda qaytaradi
     });      //req.body emas req qilsak butunlay request keladi, judayam katta.
 });
 
@@ -71,13 +67,28 @@ app.get('/author', (req, res) => {
     res.render("author", {user: user});
 })
 
+app.post("/delete-item", (req, res) => {
+    const id = req.body.id;
+    db.collection("plans").deleteOne(
+        {_id: new mongodb.ObjectId(id)},
+        function(err, data){
+        res.json({state: "success"});
+    })    
+});
+
 app.get('/', function (req, res) {          //get - 'database'dan malumotni olib o'qish uchun
-    console.log('user entered /');
-    db.collection("plans").find().toArray((err, data) => {
+    console.log('STEP2: FRdan Backga kirish');
+
+    console.log('STEP3: Backdan DATABASEga kirish');
+    db.collection("plans")
+    .find()
+    .toArray((err, data) => {
+    console.log('STEP4: DATABASEdan Backga json formatda malumot oborish');
         if (err) {
             console.log(err);
             res.end("something went wrong");
         } else {
+            console.log('STEP5: Backdan Frontga html formatda javob qaytarish');
             res.render("reja", {items: data});
         }
     });
