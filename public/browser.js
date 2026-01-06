@@ -1,4 +1,3 @@
-
 console.log("browser.js ishga tushdi");
 
 function itemTemplate(item) {
@@ -21,30 +20,34 @@ let createField = document.getElementById("create-field"); //inputni qo'lga oldi
 document
 .getElementById("create-form") //reja yozadigan formni qo'lga oldik
 .addEventListener("submit", function(e) {
-    e.preventDefault(); //submit bosganda boshqa pagega o'tmasin
-    
-    axios.post("/create-item", {reja: createField.value}) //inputga yozilgan value'ni rejaga tenglab post qilyabmiz
-    .then((response) => {
-        document
-        .getElementById("item-list")
-        .insertAdjacentHTML("beforeend", itemTemplate(response.data)); //rejalarni ro'yhatini (ul) qo'lga olib yangi rejani pastdan yozilsin deyabmiz
-        createField.value = "";
-        createField.focus();
-    })
-    .catch((err) => {
-        console.log("Iltimos boshqadan qiling!");
-        
-    });
+  e.preventDefault(); //submit bosganda boshqa pagega o'tmasin
+  if (!createField.value.trim()) {
+    alert("Reja yozing!");
+    return;
+  }
+  axios.post("/create-item", {reja: createField.value}) //inputga yozilgan value'ni rejaga tenglab post qilyabmiz
+        .then((response) => {
+            document
+            .getElementById("item-list")
+            .insertAdjacentHTML("beforeend", itemTemplate(response.data)); //rejalarni ro'yhatini (ul) qo'lga olib yangi rejani pastdan yozilsin deyabmiz
+            createField.value = "";
+            createField.focus();
+        })
+        .catch((err) => {
+            console.log("Iltimos boshqadan qiling!");
+            
+        });
 });
 
 document.addEventListener("click", function (e) {
-    console.log(e.target);
+    // console.log(e.target);
     
-  // DELETE OPER
+  // DELETE operation
   if (e.target.classList.contains("delete-me")) {
     if (confirm("Aniq o'chirasizmi?")) {
       axios
-        .post("/delete-item", { id: e.target.getAttribute("data-id") })
+        .post("/delete-item", { 
+          id: e.target.getAttribute("data-id") })
         .then((response) => {
             console.log(response.data);
             e.target.parentElement.parentElement.remove();
@@ -55,12 +58,46 @@ document.addEventListener("click", function (e) {
         });
     }
   }
-
   // EDIT OPER
   if (e.target.classList.contains("edit-me")) {
-    if (confirm("Aniq EDIT qilasizmi?")) {
+    let userInput = prompt(
+      "O'zgartirish kiriting~", 
+      e.target.parentElement.parentElement.querySelector(".item-text").innerHTML);
       // edit logic here
-    }
+    if (!userInput.trim()) {
+    alert("O'zgartmoqchi bo'lgan Rejani yozing!");
+    return;
   }
+    if (userInput&&userInput.trim()) {
+      axios.post("/edit-item", {
+        id: e.target.getAttribute("data-id"),
+        new_input: userInput,
+      }).then(response => {
+          console.log(response.data);
+          e.target.parentElement.parentElement.querySelector(".item-text")
+          .innerHTML = userInput;
+      }).catch((err) => {
+        console.log("Iltimos qaytadan o'zgarting!");
+      });
+    }  
+    }
+  } 
+);
 
-});
+//ALL plans DELETE 
+    document.getElementById("clean-all").addEventListener("click", function(){
+      if (confirm ("Aniq hammasini o'chirasizmi?")) {
+        axios
+        .post("/delete-all", {
+          delete_all: true
+        })
+        .then(response => {
+          console.log(response.data);
+          document.location.reload();
+          // document.querySelector("#item-list").remove();
+        }) 
+        .catch((err) => {
+          console.log("Hammasini boshqadan o'chirib ko'ring");
+        }) 
+      }
+    }) 
