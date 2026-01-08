@@ -18,7 +18,7 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
 //<============================================ MongoDB connect =========================================>
 
 const db = require("./server").db();
-const client = require("./server"); //TCP
+// const client = require("./server"); //TCP 
 const mongodb = require("mongodb");
 //<============================================ 1 Kirish code =========================================>
 //Kirish code - Expressga kirib kelyotgan malumotga bog'liq code
@@ -54,26 +54,29 @@ app.set("view engine", "ejs"); //"ejs" orqali frontend yasaladi
 // app.get("/gift", function(req, res) {
 //         res.end('<h1 style="text-align: center;">You can take gift for your childrens!</h1>');
 // });
-app.post("/create-item", (req, res)=> {     //post - o'zi bilan malum bir malumotni ob keladi va datebasega yozadi
-    console.log('user entered /');    
-    const new_reja = req.body.reja;
-    db.collection("plans").insertOne({reja: new_reja}, (err, data) =>{
-     console.log(data.ops);
-     res.json(data.ops[0]); //mongoDB yangi reja bilan IDsini terminalda qaytaradi
-    });      //req.body emas req qilsak butunlay request keladi, judayam katta.
-});
-
 app.get('/author', (req, res) => {
     res.render("author", {user: user});
 })
+//post - o'zi bilan malum bir malumotni ob keladi va datebasega yozadi
+app.post("/create-item", (req, res)=> {  //2 - FEdan /create-item req'ni qabul qildik   
+    console.log('user entered /');    
+    const new_reja = req.body.reja;
+    db.collection("plans")
+    .insertOne({reja: new_reja}, //3 - BEdan DBga jo'nash
+    (err, data) =>{  // 4 - DBda BEdan qabul qilish
+     console.log(data.ops);
+     res.json(data.ops[0]); //5 - BEdan FEga jo'nash
+    });      //req.body emas req qilsak butunlay request keladi, judayam katta.
+});             //mongoDB yangi reja bilan IDsini terminalda qaytaradi
 
 app.post("/delete-item", (req, res) => {
     const id = req.body.id;
     db.collection("plans").deleteOne(
         {_id: new mongodb.ObjectId(id)},
-        function(err, data){
+    function(err, data){
         res.json({state: "success"});
-    })    
+    })   
+
 });
 
 app.post("/edit-item", (req, res) => {

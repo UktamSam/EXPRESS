@@ -25,10 +25,10 @@ document
     alert("Reja yozing!");
     return;
   }
-  axios.post("/create-item", {reja: createField.value}) //inputga yozilgan value'ni rejaga tenglab post qilyabmiz
-        .then((response) => {
+  axios.post("/create-item", {reja: createField.value}) //1 - input value'ni rejaga tenglab BEga junatdik
+        .then((response) => { // 6 - BEdan FEga qabul qilish 
             document
-            .getElementById("item-list")
+            .getElementById("item-list") //<ul>
             .insertAdjacentHTML("beforeend", itemTemplate(response.data)); //rejalarni ro'yhatini (ul) qo'lga olib yangi rejani pastdan yozilsin deyabmiz
             createField.value = "";
             createField.focus();
@@ -49,7 +49,7 @@ document.addEventListener("click", function (e) {
         .post("/delete-item", { 
           id: e.target.getAttribute("data-id") })
         .then((response) => {
-            console.log(response.data);
+            console.log(response);
             e.target.parentElement.parentElement.remove();
         })
         .catch((err) => {
