@@ -1,13 +1,30 @@
-console.log('E-TASK ishga tushdi!')
 /*
-E-TASK
-Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
- MASALAN: getReverse("hello") return qilsin "olleh".
+F-TASK
+Shunday findDoublers function tuzing, unga faqat bitta string argument pass bolib, agar stringda bir hil harf 
+qatnashgan bolsa true, qatnashmasa false qaytarishi kerak. MASALAN: getReverse("hello") return true return qiladi.
 */
-function teskari(word) {
-    return word.split("").reverse().join("");
+function findDoublers(word) {
+    word = word.toLowerCase().split("").sort();
+    for (let i = 0; i < word.length; i++) {
+    if (word[i]===word[i+1]){
+        return true;
+       }
+    }
+    return false;
 }
-console.log(teskari("hello"));
+console.log(findDoublers("Hello"));
+
+
+// console.log('E-TASK ishga tushdi!')
+// /*
+// E-TASK
+// Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
+//  MASALAN: getReverse("hello") return qilsin "olleh".
+// */
+// function teskari(word) {
+//     return word.split("").reverse().join("");
+// }
+// console.log(teskari("hello"));
 
 // console.log('D-TASK ishga tushdi!')
 /*
@@ -102,6 +119,7 @@ shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50
 // shop.qabul('Jentra', 5);
 // shop.sotish('ayron', -100);
 // shop.qoldiq();
+
 // console.log('C-TASK ishga tushdi!')
 /*C-TASK:Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string
 bir hil harflardan iborat bolsa true aks holda false qaytarsin. MASALAN checkContent("mitgroup", "gmtiprou")
@@ -109,10 +127,8 @@ return qiladi true. */
 
 // function twoWords (word1, word2) {
 //     if (word1.length !== word2.length) return false;
-//     word1 = word1.toLowerCase();
-//     word2 = word2.toLowerCase();
-//     const sorted1 = word1.split("").sort().join(""); //split - array qiladi; sort - sortirovka; 
-//     const sorted2 = word2.split("").sort().join(""); //join - arrayni string qiladi.
+//     const sorted1 = word1.toLowerCase().split("").sort().join(""); //split - array qiladi; sort - sortirovka; 
+//     const sorted2 = word2.toLowerCase().split("").sort().join(""); //join - arrayni string qiladi.
 //     return sorted1 === sorted2;
 // }
 // console.log(`Birhil harflardan iborat bo'lsa true, aksincha false. Javob: ${twoWords ("Mitgroup", "gmtiprou")}`);
